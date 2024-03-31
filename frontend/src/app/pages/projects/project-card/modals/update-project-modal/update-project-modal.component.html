@@ -1,0 +1,90 @@
+<div class="modal-backdrop">
+  <div class="modal">
+    <div class="close-button-container">
+      <button class="close-button" (click)="closeModal()">X</button>
+    </div>
+    <div class="modal-header">
+      <h1>Edit Project</h1>
+    </div>
+    <div class="modal-body">
+      <form [formGroup]="projectForm" (ngSubmit)="submit()">
+        <label for="projectName">Project Name</label>
+        <input
+          type="text"
+          id="projectName"
+          name="projectName"
+          placeholder = "{{updateName}}"
+          formControlName="projectName"
+        />
+
+        <!-- <div
+          *ngIf="projectForm.get('projectName')?.errors?.['required'] && projectForm.get('projectName')?.touched"
+          class="error-message"
+        >
+          Team Name is required
+        </div> -->
+
+        <label for="description">Description</label>
+        <textarea
+          id="description"
+          name="description"
+          placeholder = "{{updateDescription}}"
+          formControlName="description"
+        ></textarea>
+
+        <!-- <div
+          *ngIf="projectForm.get('description')?.errors?.['required'] && projectForm.get('description')?.touched"
+          class="error-message"
+        >
+          Description is required
+        </div> -->
+
+        <!-- Member selection area -->
+        <!-- Member selection area -->
+        <label id="isActive" for="members">Active?</label>
+        <select
+          formControlName="isActive"
+          id="isActive"
+          (change)="addChoice()"
+        >
+          <option value="" disabled selected>Pick an option</option>
+          <option *ngFor="let choice of yesOrNo" [ngValue]="choice">
+            {{ choice }}
+          </option>
+        </select>
+        <!-- <div
+          *ngIf="
+            projectForm.get('isActive')?.invalid &&
+            projectForm.get('isActive')?.touched
+          "
+          class="error-message"
+        >
+          Choice is required
+        </div> -->
+
+        <button type="submit" class="submit-button">Save</button>
+      </form>
+    </div>
+  </div>
+</div>
+
+<!-- <div class="modal-backdrop">
+    <div class="modal">
+      <div class="modal-header">
+        <button class="close-button" (click)="closeModal()">&times;</button>
+      </div>
+  
+      <div class="modal-body">
+        <label for="name">Project Name</label>
+        <input type="text" [(ngModel)]="name" placeholder="{{updateName}}"/>
+  
+        <label for="description">Description</label>
+        <textarea [(ngModel)]="description" placeholder="{{updateDescription}}"></textarea>
+  
+        <button class="submit-button" (click)="submitProject()">
+          Create Project
+        </button>
+        
+      </div>
+    </div>
+  </div> -->

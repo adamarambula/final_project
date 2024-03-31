@@ -1,0 +1,23 @@
+<div class="modal-backdrop">
+  <div class="modal">
+    <div class="modal-header">
+      <h1>{{user?.profile?.firstName}}</h1>
+      <div class="close-button-container">
+        <button class="close-button" (click)="closeModal()">X</button>
+      </div>
+    </div>
+
+    <div class="modal-body">
+      <label for="announcementTitle">Title</label>
+      <input type="text" [(ngModel)]="announcementTitle" />
+
+      <label for="announcementMessage">Message</label>
+      <textarea [(ngModel)]="announcementMessage"></textarea>
+
+      <button class="submit-button" (click)="submit()">
+        Create Announcement
+      </button>
+      
+    </div>
+  </div>
+</div>

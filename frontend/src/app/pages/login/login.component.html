@@ -1,0 +1,41 @@
+<div class="login-container">
+  <h1>COOK SYSTEMS</h1>
+  <h2>A FINAL APP</h2>
+  <div class="login-box">
+    <div class="svg-container">
+      <img src="assets/logo.svg" class="inner-svg" />
+    </div>
+    <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+      <div class="form-group">
+        <input
+          type="text"
+          id="username"
+          formControlName="username"
+          placeholder="Email"
+          required
+        />
+           <div *ngIf="loginForm?.get('username')?.invalid && loginForm?.get('username')?.touched">
+          <div class='error-message-small'*ngIf="loginForm?.get('username')?.errors?.['required']">Email is required</div>
+          <div class='error-message-small' *ngIf="loginForm?.get('username')?.errors?.['email']">Invalid email format</div>
+        </div>
+      </div>
+      <div class="form-group">
+        <input
+          type="password"
+          id="password"
+          formControlName="password"
+          placeholder="Password"
+          required
+        />
+        <div *ngIf="loginForm?.get('password')?.invalid && loginForm?.get('password')?.touched">
+          <div class='error-message-small' *ngIf="loginForm?.get('password')?.errors?.['required']">Password is required</div>
+          <div class='error-message-small' *ngIf="loginForm?.get('password')?.errors?.['minlength']">
+            Password must be at least 5 characters long
+          </div>
+        </div>
+      </div>
+      <div class="error-message" *ngIf="errorMessage">{{ errorMessage }}</div>
+      <button type="submit" [disabled]="!loginForm.valid">LOGIN</button>
+    </form>
+  </div>
+</div>
