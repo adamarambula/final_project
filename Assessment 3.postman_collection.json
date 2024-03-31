@@ -1,0 +1,414 @@
+{
+	"info": {
+		"_postman_id": "ef2d2b87-e529-478d-b40a-ddb05d864310",
+		"name": "Assessment 3",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "23203878"
+	},
+	"item": [
+		{
+			"name": "Non-Admin Privileges",
+			"item": [
+				{
+					"name": "Retrieve all annoucements ->  /user/{id}/annoucements",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/users/29/announcements",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"users",
+								"29",
+								"announcements"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Retreive all projects -> /users/{id}/projects",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/users/18/projects",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"users",
+								"18",
+								"projects"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create a project -> POST /users/{id}/projects",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\":\"hello\",\r\n    \"description\": \"alsdfjls;adjfl sd\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8080/users/19/11/projects",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"users",
+								"19",
+								"11",
+								"projects"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update a project -> /users/{id}/projects /{projectId}",
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"adslfjasdsdfj\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8080/users/19/11/projects/8",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"users",
+								"19",
+								"11",
+								"projects",
+								"8"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Retreive a single project ->  /users/{userId}/{teamId}/projects/{projectId}",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8080/users/19/11/projects/8",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"users",
+								"19",
+								"11",
+								"projects",
+								"8"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Admin Privileges",
+			"item": [
+				{
+					"name": "Create a new user -> /users",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"credentials\": {\r\n        \"password\": \"12345\"\r\n    },\r\n    \"profile\": {\r\n        \"firstName\": \"Libby\",\r\n        \"lastName\": \"Eilbert\",\r\n        \"email\": \"libby@email.com\",\r\n        \"phone\": \"1234567890\"\r\n    }\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8080/users",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"users"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Retreive all teams -> /company/{id}/teams",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/company/6/teams",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"company",
+								"6",
+								"teams"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Retreives all projects ->  /company/{companyId}/teams/{teamId}/projects",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/company/6/teams/11/projects",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"company",
+								"6",
+								"teams",
+								"11",
+								"projects"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create a projects ->  /company/{companyId}/teams/{teamId}/projects",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"new project\",\r\n    \"description\": \"description of new project\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8080/company/6/teams/11/projects",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"company",
+								"6",
+								"teams",
+								"11",
+								"projects"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update a projects ->  /company/{companyId}/teams/{teamId}/projects/{projectId}",
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"description\": \"working ??\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8080/company/6/teams/11/projects/8",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"company",
+								"6",
+								"teams",
+								"11",
+								"projects",
+								"8"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Retreive all users -> /company/{id}/users",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/company/6/users",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"company",
+								"6",
+								"users"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create a team -> /company/{id}/users",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"new team\",\r\n    \"description\": \"description of new team\",\r\n    \"teammateIds\": [18, 19, 20]\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8080/company/6/teams",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"company",
+								"6",
+								"teams"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Retreive all announcements -> /company/{id}/announcements",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/company/6/announcements",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"company",
+								"6",
+								"announcements"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create an announcement  -> /company/{companyId}/{userId}/announcements",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"title\":\"new one \",\r\n    \"message\":\"hello word\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8080/company/6/23/announcements",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"company",
+								"6",
+								"23",
+								"announcements"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Login  ->  /users/login",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"username\": \"cousingreg\",\n    \"password\": \"mosteligiblebachelor\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8080/users/login",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"users",
+						"login"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
